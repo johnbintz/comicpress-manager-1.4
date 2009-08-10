@@ -4,11 +4,11 @@
  * The main manager screen.
  */
 function cpm_manager_first_run($target_page) {
-  global $cpm_config;
+  global $cpm_config, $wpmu_version;
 
   $target_page = "?page=${target_page}";
 
-  //$is_wpmu = function_exists("get_site_option");
+  $is_wpmu = $wpmu_version;
 
   ob_start();
 

@@ -1,7 +1,7 @@
 <?php
 
 function cpm_action_do_first_run() {
-  global $cpm_config, $blog_id;
+  global $cpm_config, $blog_id, $wpmu_version;
 
   $dir_list = array(
     CPM_DOCUMENT_ROOT,
@@ -9,8 +9,8 @@ function cpm_action_do_first_run() {
     CPM_DOCUMENT_ROOT . '/comics-rss',
     CPM_DOCUMENT_ROOT . '/comics-archive'
   );
-
-  //if ($is_wpmu = function_exists('get_site_option')) { $dir_list = cpm_wpmu_first_run_dir_list(); }
+	$is_wpmu = $wpmu_version;
+	if ($is_wpmu) { $dir_list = cpm_wpmu_first_run_dir_list(); }
 
   $any_made = false;
   $all_made = true;
