@@ -376,8 +376,14 @@ function cpm_read_information_and_check_config() {
         $cpm_config->thumbs_folder_writable[$thumb_type] = true;
       }
     }
-    $cpm_config->comic_category_info = get_object_vars(get_category($cpm_config->properties['comiccat']));
-    $cpm_config->blog_category_info = get_object_vars(get_category($cpm_config->properties['blogcat']));
+
+    foreach (array('comic', 'blog') as $type) {
+      $result = (object)get_category($cpm_config->properties["${type}cat"]);
+      if (!is_wp_error($result)) {
+        $cpm_config->{"${type}_category_info"} = get_object_vars($result);
+      }
+    }
+
     $cpm_config->comic_files = cpm_read_comics_folder();
   } else {
     // quick check to see if the theme is ComicPress.
