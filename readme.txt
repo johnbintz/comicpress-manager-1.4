@@ -2,7 +2,7 @@
 Contributors: johncoswell
 Tags: comicpress, webcomics, management, admin, posts, plugin
 Requires at least: 2.5.1
-Tested up to: 2.7.1
+Tested up to: 2.8
 Stable tag: 1.4.5
 Donate link: http://www.coswellproductions.com/wordpress/wordpress-plugins/
 
