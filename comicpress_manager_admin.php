@@ -2264,6 +2264,8 @@ function cpm_show_debug_info($display_none = true) {
       $subdir = '/' . $subdir;
     }
 
+    $output_config['directory_realpaths'] = array();
+
     foreach (array(
       'comic' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['comic_folder'] . $subdir,
       'rss' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['rss_comic_folder'] . $subdir,
@@ -2275,6 +2277,7 @@ function cpm_show_debug_info($display_none = true) {
       } else {
         $output_config['folder_perms'][$key] = "folder does not exist";
       }
+      $output_config['directory_realpaths'][$key] = $path;
     }
 
     $new_output_config = array();
