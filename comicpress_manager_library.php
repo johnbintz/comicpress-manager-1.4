@@ -290,7 +290,7 @@ function cpm_get_subcomic_directory() {
     $result = get_option('comicpress-manager-manage-subcomic');
     if (!empty($result)) {
       if ($result != $cpm_config->properties['comiccat']) {
-        if (($category= get_category($result)) !== false) {
+        if (($category = get_category($result)) !== false) {
           return $category->slug;
         }
       }

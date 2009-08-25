@@ -2092,7 +2092,9 @@ function cpm_show_comicpress_details() {
 
         <?php foreach (array('archive' => __('Archive folder:', 'comicpress-manager'),
                              'rss'     => __('RSS feed folder:', 'comicpress-manager'))
-                       as $type => $title) { ?>
+                       as $type => $title) {
+          $realpath = realpath(CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties["${type}_comic_folder"]  . $subdir_path);
+          ?>
           <li><strong><?php echo $title ?></strong> <?php echo $cpm_config->properties["${type}_comic_folder"]  . $subdir_path; ?>
             <?php if (
               ($cpm_config->get_scale_method() != CPM_SCALE_NONE) &&
@@ -2111,6 +2113,13 @@ function cpm_show_comicpress_details() {
               ?>
               (<em style="cursor: help; text-decoration: underline" title="<?php echo implode(", ", $reasons) ?>">not generating</em>)
             <?php } ?>
+            <?php
+              if ($realpath !== false) {
+                printf(__("(<em>%d files in folder</em>)", 'comicpress-manager'), count(glob($realpath . "/*")));
+              } else {
+                _e('(<em>folder not found</em>)', 'comicpress-manager');
+              }
+            ?>
           </li>
         <?php } ?>
 
