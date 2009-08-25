@@ -398,18 +398,18 @@ function cpm_read_information_and_check_config() {
     if (!$wpmu_version) {
       // is the site root configured properly?
       if (!file_exists(CPM_DOCUMENT_ROOT)) {
-        $cpm_config->errors[] = sprintf(__('The comics site root <strong>%s</strong> does not exist. Check your <a href="options-general.php">WordPress address and address settings</a>.', 'comicpress-manager'), CPM_DOCUMENT_ROOT);
+        $cpm_config->warnings[] = sprintf(__('The comics site root <strong>%s</strong> does not exist. Check your <a href="options-general.php">WordPress address and address settings</a>.', 'comicpress-manager'), CPM_DOCUMENT_ROOT);
         $any_cpm_document_root_failures = true;
       }
 
       if (!file_exists(CPM_DOCUMENT_ROOT . '/index.php')) {
-        $cpm_config->errors[] = sprintf(__('The comics site root <strong>%s</strong> does not contain a WordPress index.php file. Check your <a href="options-general.php">WordPress address and address settings</a>.', 'comicpress-manager'), CPM_DOCUMENT_ROOT);
+        $cpm_config->warnings[] = sprintf(__('The comics site root <strong>%s</strong> does not contain a WordPress index.php file. Check your <a href="options-general.php">WordPress address and address settings</a>.', 'comicpress-manager'), CPM_DOCUMENT_ROOT);
         $any_cpm_document_root_failures = true;
       }
     }
 
     if ($any_cpm_document_root_failures) {
-      $cpm_config->errors[] = print_r($cpm_attempted_document_roots, true);
+      $cpm_config->warnings[] = print_r($cpm_attempted_document_roots, true);
     }
 
     // folders that are the same as the comics folder won't be written to
