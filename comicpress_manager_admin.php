@@ -131,11 +131,13 @@ function cpm_add_pages() {
     if (($option = generate_comic_categories_options('category')) !== false) {
       if (cpm_option('cpm-enable-quomicpress') == 1) {
         if (count($cpm_config->errors) == 0) {
-          wp_register_sidebar_widget( 'dashboard_quomicpress', __("QuomicPress (Quick ComicPress)", "comicpress-manager"), 'cpm_quomicpress_widget',
-            array( 'width' => 'half' )
-          );
+          if (current_user_can('edit_post')) {
+            wp_register_sidebar_widget( 'dashboard_quomicpress', __("QuomicPress (Quick ComicPress)", "comicpress-manager"), 'cpm_quomicpress_widget',
+              array( 'width' => 'half' )
+            );
 
-          add_filter('wp_dashboard_widgets', 'cpm_add_quomicpress_widget');
+            add_filter('wp_dashboard_widgets', 'cpm_add_quomicpress_widget');
+          }
         }
       }
     }
