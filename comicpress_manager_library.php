@@ -167,9 +167,7 @@ function cpm_breakdown_comic_filename($filename, $allow_override = false) {
                                                        "m" => '[0-9]{2,2}',
                                                        "d" => '[0-9]{2,2}'));
 
-  $pattern = preg_quote($pattern, "#");
-
-  if (preg_match("#^(${pattern})(.*)\.[^\.]+$#", $filename, $matches) > 0) {
+  if (@preg_match("#^(${pattern})(.*)\.[^\.]+$#", $filename, $matches) > 0) {
     list($all, $date, $title) = $matches;
 
     if (strtotime($date) === false) { return false; }
