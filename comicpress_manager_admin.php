@@ -869,7 +869,7 @@ function cpm_display_storyline_checkboxes($category_tree, $post_categories, $pre
     ?>
     <div style="margin-left: <?php echo (count($parts) - 2) * 20 ?>px; white-space: nowrap">
       <label>
-        <input type="checkbox"
+        <input type="radio"
                name="<?php echo $name ?>[]"
                value="<?php echo $category_id ?>" id="<?php echo $name ?>-<?php echo $category_id ?>"
                <?php echo in_array($category_id, $post_categories) ? "checked" : "" ?> />
