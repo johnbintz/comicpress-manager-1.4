@@ -22,6 +22,8 @@ function cpm_action_update_cpm_config() {
           if ($ok) { 
             $target_update_options[$target_key] = $_POST[$option_info['id']];
           } else {
+            $target_update_options[$target_key] = $option_info['default'];
+            update_option($target_key, $option_info['default']);
             $all_valid = false;
             break 2;
           }
@@ -52,7 +54,8 @@ function cpm_action_update_cpm_config() {
 }
 
 function cpm_validate_cpm_option_cpm_default_post_time($value) {
-  return (strtotime("2008-01-01 {$value}") !== false);
+  $result = strtotime("2008-01-01 {$value}");
+  return ($result !== false) && ($result !== -1);
 }
 
 ?>
