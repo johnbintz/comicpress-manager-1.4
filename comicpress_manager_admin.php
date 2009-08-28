@@ -745,18 +745,14 @@ function cpm_manager_page_caller($page) {
 
     $do_first_run = !$all_comic_folders_found;
     if (!$do_first_run) {
-      if ($wpmu_version) {
-        update_option("comicpress-manager-cpm-did-first-run", 1);
-      }
+      update_option("comicpress-manager-cpm-did-first-run", 1);
     }
   }
 
   if ($do_first_run) {
     include("pages/comicpress_first_run.php");
     cpm_manager_first_run(plugin_basename(__FILE__));
-    if ($wpmu_version) {
-      update_option("comicpress-manager-cpm-did-first-run", 1);
-    }
+    update_option("comicpress-manager-cpm-did-first-run", 1);
   } else {
     if ($cpm_config->did_first_run) { $page = "config"; }
     include("pages/comicpress_${page}.php");
