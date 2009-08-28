@@ -19,7 +19,6 @@ function cpm_manager_cpm_config() {
       <?php foreach ($configuration_options as $option) {
         $ok = true;
         if ($wpmu_version) { $ok = !isset($option['strip-wpmu']); }
-//        if (is_string($option)) { $ok = true; }
 
         if ($option['type'] == "categories") {
           $ok = (count($category_checkboxes = cpm_generate_additional_categories_checkboxes($option['id'], explode(",", $result))) > 0);
