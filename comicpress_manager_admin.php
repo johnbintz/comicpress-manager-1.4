@@ -668,7 +668,7 @@ function cpm_post_editor($width = 435, $is_import = false) {
     if (is_array($form_title_and_field)) {
       list($title, $field, $id) = $form_title_and_field; ?>
       <tr<?php echo (!empty($id) ? " id=\"$id\"" : "") ?>>
-        <th scope="row" valign="top"><?php echo $title ?></td>
+        <th scope="row" valign="top"><?php echo $title ?></th>
         <td valign="top"><?php echo $field ?></td>
       </tr>
     <?php } else { ?>
@@ -1809,7 +1809,9 @@ function cpm_include_javascript($name) {
   $file_to_use = $regular_file;
   if (file_exists($js_path . '/' . $minified_file)) {
     if (filemtime($js_path . '/' . $minified_file) >= filemtime($js_path . '/' . $regular_file)) {
-      $file_to_use = $minified_file;
+      if (filesize($js_path . '/' . $minified_file) > 0) {
+        $file_to_use = $minified_file;
+      }
     }
   }
 
@@ -2141,7 +2143,7 @@ function cpm_show_comicpress_details() {
             <?php printf(__('(ID %s)', 'comicpress-manager'), $cpm_config->properties['comiccat']) ?>
           <?php } ?>
         </li>
-        <li><strong><?php _e('Blog category:', 'comicpress-manager') ?></strong> <a href="<?php echo get_category_link($cpm_config->properties['blogcat']) ?>" ?>
+        <li><strong><?php _e('Blog category:', 'comicpress-manager') ?></strong> <a href="<?php echo get_category_link($cpm_config->properties['blogcat']) ?>">
             <?php echo $cpm_config->blog_category_info['name'] ?></a> <?php printf(__('(ID %s)', 'comicpress-manager'), $cpm_config->properties['blogcat']) ?></li>
 
         <?php if (!$wpmu_version) { ?>
@@ -2295,7 +2297,7 @@ function cpm_show_debug_info($display_none = true) {
       $new_output_config[$key] = $value;
     }
 
-    var_dump($new_output_config);
+    var_dump($new_output_config); // ignore var_dump
   ?></span>
   <?php
 
