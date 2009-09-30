@@ -52,7 +52,7 @@ function cpm_manager_status() {
       }
 
       $icon_file_to_use = $comic_filepath;
-      foreach (array('rss', 'archive') as $type) {
+      foreach (array('rss', 'archive', 'mini') as $type) {
         if (isset($thumbnails_found[$type])) { $icon_file_to_use = CPM_DOCUMENT_ROOT . $thumbnails_found[$type]; }
       }
       $comic_info['icon_uri'] = cpm_build_comic_uri($icon_file_to_use, CPM_DOCUMENT_ROOT);
@@ -283,7 +283,7 @@ function cpm_manager_status() {
 
                         <?php
                           $all_found = array();
-                          foreach (array('rss', 'archive') as $type) {
+                          foreach (array('rss', 'archive', 'mini') as $type) {
                             if (isset($object["thumbnails_found_${type}"])) { $all_found[$type] = $object["thumbnails_found_${type}"]; }
                           }
 
