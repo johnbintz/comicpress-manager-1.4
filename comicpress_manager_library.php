@@ -65,28 +65,22 @@ function cpm_option($name) { return get_option("comicpress-manager-${name}"); }
  * Calculate the document root where comics are stored.
  */
 function cpm_calculate_document_root() {
-  global $cpm_attempted_document_roots, $wpmu_version;
-  $cpm_attempted_document_roots = array();
+  global $wpmu_version;
 
-  $document_root = null;
+  $document_root = "";
 
-  $parsed_url = parse_url(get_option('home'));
-
-  $translated_script_filename = str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']);
-
-  foreach (array('SCRIPT_NAME', 'SCRIPT_URL') as $var_to_try) {
-    $root_to_try = substr($translated_script_filename, 0, -strlen($_SERVER[$var_to_try]))  . $parsed_url['path'];
-    $cpm_attempted_document_roots[] = $root_to_try;
-
-    if (file_exists($root_to_try . '/index.php')) {
-      $document_root = $root_to_try;
-      break;
-    }
+  // a base document root to try and use
+  if (isset($_SERVER['SCRIPT_FILENAME'])) {
+    $document_root = dirname($_SERVER['SCRIPT_FILENAME']);
   }
 
-  if (is_null($document_root)) { $document_root = $_SERVER['DOCUMENT_ROOT'] . $parsed_url['path']; }
+  $cwd = getcwd();
+  if ($cwd !== false) {
+    // Strip the wp-admin part and just get to the root.
+    $document_root = str_replace('\wp-admin','',getcwd());
+    $document_root = str_replace('/wp-admin','',$document_root); // For IIS
 
-  if ($wpmu_version) {
+  if (isset($wpmu_version)) {
     $document_root = cpm_wpmu_modify_path($document_root);
   }
 
