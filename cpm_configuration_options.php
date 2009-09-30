@@ -61,6 +61,13 @@
       'message' => "If checked and server is configured correctly, generate RSS thumbnails"
     ),
     array(
+      'id' => 'cpm-mini-generate-thumbnails',
+      'name' => "Generate Mini Thumbnails?",
+      'type' => 'checkbox',
+      'default' => "1",
+      'message' => "If checked and server is configured correctly, generate mini thumbnails"
+    ),
+    array(
       'id' => 'cpm-thumbnail-quality',
       'name' => "Thumbnail Quality",
       'type' => 'text',

@@ -57,6 +57,13 @@ $comicpress_configuration_options = array(
     'default' => "380"
   ),
   array(
+    'id' => 'mini_comic_width',
+    'name' => 'Mini Comic Width',
+    'type' => 'integer',
+    'description' => 'The width your comics will appear in minithumbs',
+    'default' => "100"
+  ),
+  array(
     'id' => 'blog_postcount',
     'name' => 'Blog Post Count',
     'type' => 'integer',

@@ -14,8 +14,10 @@ class ComicPressConfig {
     'blogcat'              => '2',
     'rss_comic_folder'     => 'comics',
     'archive_comic_folder' => 'comics',
+    'mini_comic_folder'    => 'comics',
     'archive_comic_width'  => '380',
     'rss_comic_width'      => '380',
+    'mini_comic_width'     => '100',
     'blog_postcount'       => '10'
   );
 
@@ -32,8 +34,8 @@ class ComicPressConfig {
   var $is_cpm_managing_posts, $is_cpm_modifying_categories;
   var $wpmu_disk_space_message;
 
-  var $separate_thumbs_folder_defined = array('rss' => null, 'archive' => null);
-  var $thumbs_folder_writable = array('rss' => null, 'archive' => null);
+  var $separate_thumbs_folder_defined = array('rss' => null, 'archive' => null, 'mini' => null);
+  var $thumbs_folder_writable = array('rss' => null, 'archive' => null, 'mini' => null);
   var $allowed_extensions = array("gif", "jpg", "jpeg", "png");
 
   function get_scale_method() {
@@ -79,7 +81,8 @@ function cpm_calculate_document_root() {
     // Strip the wp-admin part and just get to the root.
     $document_root = str_replace('\wp-admin','',getcwd());
     $document_root = str_replace('/wp-admin','',$document_root); // For IIS
-
+  }
+  
   if (isset($wpmu_version)) {
     $document_root = cpm_wpmu_modify_path($document_root);
   }
@@ -353,7 +356,9 @@ function cpm_read_information_and_check_config() {
   $folders = array(
     array('comic folder', 'comic_folder', true, ""),
     array('RSS feed folder', 'rss_comic_folder', false, 'rss'),
-    array('archive folder', 'archive_comic_folder', false, 'archive'));
+    array('archive folder', 'archive_comic_folder', false, 'archive'),
+    array('mini thumb folder', 'mini_comic_folder', false, 'mini'),
+  );
 
   foreach ($folders as $folder_info) {
     list ($name, $property, $is_fatal, $thumb_type) = $folder_info;
