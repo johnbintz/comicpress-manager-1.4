@@ -2331,7 +2331,11 @@ function cpm_manager_edit_config() {
       if (preg_match("#(${folders_to_ignore})$#", $root_file) == 0) {
         if (count(explode("/", $root_file)) <= $max_depth) {
           $found_folders[] = $root_file;
-          $folder_stack = array_merge($folder_stack, glob($file . "/*"));
+
+          $files = glob($file . "/*");
+          if (is_array($files)) {
+            $folder_stack = array_merge($folder_stack, $files);
+          } 
         } else {
           if (!$max_depth_message) {
             $cpm_config->messages[] = sprintf(__("I went %s levels deep in my search for comic directories. Are you sure you have your site set up correctly?", 'comicpress-manager'), $max_depth);
