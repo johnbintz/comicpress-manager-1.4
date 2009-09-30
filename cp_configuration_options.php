@@ -43,6 +43,15 @@ $comicpress_configuration_options = array(
     'no_wpmu' => true
   ),
   array(
+    'id' => 'comicsmini_path',
+    'variable_name' => 'mini_comic_folder',
+    'name' => 'Minithumb Comic Folder',
+    'type' => 'folder',
+    'description' => 'The folder for your your mini thumbs',
+    'default' => "comics-mini",
+    'no_wpmu' => true
+  ),
+  array(
     'id' => 'archive_comic_width',
     'name' => 'Archive Comic Width',
     'type' => 'integer',
