@@ -387,6 +387,10 @@ function cpm_read_information_and_check_config() {
       $cpm_config->detailed_warnings[] = __("The current theme isn't the ComicPress theme.  If you've renamed the theme, ignore this warning.", 'comicpress-manager');
     }
 
+    if (!extension_loaded('zip')) {
+      $cpm_config->detailed_warnings[] = __("You do not have the Zip extension installed. Uploading a Zip file will not work.", 'comicpress-manager');
+    }
+
     $any_cpm_document_root_failures = false;
 
     if (!$wpmu_version) {
