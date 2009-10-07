@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: comicpress-manager 1.4.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-07 07:05-0400\n"
+"POT-Creation-Date: 2009-10-07 08:27-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,25 +196,25 @@ msgid ""
 "folder and try again."
 msgstr ""
 
-#: actions/comicpress_do-first-run.php:23
+#: actions/comicpress_do-first-run.php:24
 #, php-format
 msgid "<strong>Directory created:</strong> %s"
 msgstr ""
 
-#: actions/comicpress_do-first-run.php:28
+#: actions/comicpress_do-first-run.php:29
 #, php-format
 msgid "<strong>Unable to create directory:</strong> %s"
 msgstr ""
 
-#: actions/comicpress_do-first-run.php:35
+#: actions/comicpress_do-first-run.php:36
 msgid "<strong>All the directories were already found, nothing to do!</strong>"
 msgstr ""
 
-#: actions/comicpress_do-first-run.php:39
+#: actions/comicpress_do-first-run.php:40
 msgid "<strong>All directories created!</strong>"
 msgstr ""
 
-#: actions/comicpress_do-first-run.php:42
+#: actions/comicpress_do-first-run.php:43
 msgid ""
 "<strong>Unable to create directories!</strong> Contact your administrator."
 msgstr ""

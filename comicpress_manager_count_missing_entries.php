@@ -28,8 +28,6 @@
     }
     $all_post_dates = array_unique($all_post_dates);
 
-    echo get_comic_folder_path();
-
     ob_start();
     $missing_comic_count = 0;
     foreach (cpm_read_comics_folder() as $comic_file) {

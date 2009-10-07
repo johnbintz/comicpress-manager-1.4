@@ -79,7 +79,7 @@ function cpm_calculate_document_root() {
   $cwd = getcwd();
   if ($cwd !== false) {
     // Strip the wp-admin part and just get to the root.
-    $document_root = preg_replace('#[\\/]wp-(admin|content).*#', '', $cwd);
+    $document_root = preg_replace('#[\\\/]wp-(admin|content).*#', '', $cwd);
   }
 
   if (isset($wpmu_version)) {
