@@ -7,7 +7,8 @@ function cpm_action_do_first_run() {
     CPM_DOCUMENT_ROOT,
     CPM_DOCUMENT_ROOT . '/comics',
     CPM_DOCUMENT_ROOT . '/comics-rss',
-    CPM_DOCUMENT_ROOT . '/comics-archive'
+    CPM_DOCUMENT_ROOT . '/comics-archive',
+    CPM_DOCUMENT_ROOT . '/comics-mini',
   );
 	$is_wpmu = $wpmu_version;
 	if ($is_wpmu) { $dir_list = cpm_wpmu_first_run_dir_list(); }

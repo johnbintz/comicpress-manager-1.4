@@ -79,10 +79,9 @@ function cpm_calculate_document_root() {
   $cwd = getcwd();
   if ($cwd !== false) {
     // Strip the wp-admin part and just get to the root.
-    $document_root = str_replace('\wp-admin','',getcwd());
-    $document_root = str_replace('/wp-admin','',$document_root); // For IIS
+    $document_root = preg_replace('#[\\/]wp-(admin|content).*#', '', $cwd);
   }
-  
+
   if (isset($wpmu_version)) {
     $document_root = cpm_wpmu_modify_path($document_root);
   }
@@ -305,6 +304,7 @@ function cpm_read_comics_folder() {
   global $cpm_config;
 
   $glob_results = glob(get_comic_folder_path() . "/*");
+
   if ($glob_results === false) {
     //$cpm_config->messages[] = "FYI: glob({$cpm_config->path}/*) returned false. This can happen on some PHP installations if you have no files in your comic directory. This message will disappear once you upload a comic to your site.";
     return array(); 
