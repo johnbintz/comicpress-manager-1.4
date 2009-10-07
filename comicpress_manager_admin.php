@@ -978,18 +978,16 @@ function write_comicpress_config_functions_php($filepath, $just_show_config = fa
     if (strpos($file_lines[$i], "?>") !== false) { $closing_line = $i; }
   }
 
-  foreach (array_keys($cpm_config->properties) as $variable) {
-    if (!in_array($variable, $properties_written)) {
-      foreach ($comicpress_configuration_options as $option_info) {
-        if ($option_info['id'] == $variable) {
-          $comicpress_lines = array();
-          $comicpress_lines[] = "//{$option_info['name']} - {$option_info['description']} (default \"{$option_info['default']}\")";
-          $comicpress_lines[] = "\${$option_info['id']} = \"{$cpm_config->properties[$variable]}\";";
-          $comicpress_lines[] = "";
-          array_splice($file_lines, $closing_line, 0, $comicpress_lines);
-          break;
-        }
-      }
+  foreach ($comicpress_configuration_options as $option_info) {
+    $varname = isset($option_info['variable_name']) ? $option_info['variable_name'] : $option_info['id'];
+    $value = isset($cpm_config->properties[$varname]) ? $cpm_config->properties[$varname] : $option_info['default'];
+
+    if (!in_array($varname, $properties_written)) {
+      $comicpress_lines = array();
+      $comicpress_lines[] = "//{$option_info['name']} - {$option_info['description']} (default \"{$option_info['default']}\")";
+      $comicpress_lines[] = "\${$varname} = \"{$value}\";";
+      $comicpress_lines[] = "";
+      array_splice($file_lines, $closing_line, 0, $comicpress_lines);
     }
   }
 
