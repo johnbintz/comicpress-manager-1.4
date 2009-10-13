@@ -2301,6 +2301,7 @@ function cpm_show_debug_info($display_none = true) {
     foreach (array(
       'comic' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['comic_folder'] . $subdir,
       'rss' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['rss_comic_folder'] . $subdir,
+      'mini' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['mini_comic_folder'] . $subdir,
       'archive' => CPM_DOCUMENT_ROOT . '/' . $cpm_config->properties['archive_comic_folder'] . $subdir,
       'config' => $cpm_config->config_filepath
     ) as $key => $path) {
