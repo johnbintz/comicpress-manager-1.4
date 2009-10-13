@@ -82,6 +82,8 @@ function cpm_add_pages() {
       'normal',
       'low'
     );
+
+    require_once("pages/edit_post_show_comic.php");
   }
 
   $filename = plugin_basename(__FILE__);
@@ -795,7 +797,6 @@ function cpm_manager_cpm_config_caller() { cpm_manager_page_caller("cpm_config")
 function cpm_manager_storyline_caller() { cpm_manager_page_caller("storyline"); }
 
 function cpm_show_comic_caller() {
-  include("pages/edit_post_show_comic.php");
   cpm_show_comic();
 }
 
