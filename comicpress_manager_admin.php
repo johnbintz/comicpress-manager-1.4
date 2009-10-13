@@ -5,7 +5,6 @@
 require_once('comicpress_manager_library.php');
 
 add_action("admin_menu", "cpm_add_pages");
-add_action("edit_form_advanced", "cpm_show_comic_caller");
 add_action("add_category_form_pre", "cpm_comicpress_categories_warning");
 add_action("pre_post_update", "cpm_handle_pre_post_update");
 add_action("save_post", "cpm_handle_edit_post");
@@ -886,6 +885,7 @@ function cpm_display_storyline_checkboxes($category_tree, $post_categories, $pre
     $parts = explode("/", $node);
     $category_id = end($parts);
     $name = (empty($prefix) ? "" : "${prefix}-") . $root_name;
+
     ?>
     <div style="margin-left: <?php echo (count($parts) - 2) * 20 ?>px; white-space: nowrap">
       <label>

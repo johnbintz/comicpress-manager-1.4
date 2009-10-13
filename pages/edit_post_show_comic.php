@@ -86,12 +86,6 @@ function cpm_show_comic() {
 
     Event.observe(window, 'load', function() {
       $('post').encoding = "multipart/form-data";
-
-      if (storyline_enabled) {
-        $$('div#categories-all input').each(function(i) {
-          if (all_comic_categories.indexOf(Number(i.value)) != -1) { i.disabled = true; }
-        });
-      }
     });
   </script>
 
@@ -151,13 +145,30 @@ function cpm_show_comic() {
         <input type="hidden" name="thumbnails" value="yes" />
       </td>
       <script type="text/javascript">
-        Event.observe('comicpress-replace-image', 'click', function() {
-          [<?php echo (is_array($cpm_config->properties['comiccat'])) ?
-                      implode(",", $cpm_config->properties['comiccat']) :
-                      $cpm_config->properties['comiccat'] ?>].each(function(i) {
-            $('in-category-' + i).checked = true;
+        var handle_click = function() {
+          var any_checked = false
+          $$('input[name="post_category[]"]').each(function(i) {
+            if (i.type == "radio") {
+              if (i.checked) {
+                any_checked = true;
+              }
+            }
           });
-        });
+
+          if (!any_checked) {
+            var has_checked = false;
+            $$('input[name="post_category[]"]').each(function(i) {
+              if (!has_checked) {
+                if (i.type == "radio") {
+                  i.checked = true;
+                  has_checked = true;
+                }
+              }
+            });
+          }
+        };
+
+        [ 'click', 'blur' ].each(function(w) { $('comicpress-replace-image').observe(w, handle_click); });
       </script>
     </tr>
     <?php
