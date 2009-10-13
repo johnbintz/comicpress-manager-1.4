@@ -73,6 +73,17 @@ function cpm_add_pages() {
     $do_enqueue_prototype = true;
   }
 
+  if (strpos($pagenow, "post") === 0) {
+    add_meta_box(
+      'comic-for-this-post',
+      __('Comic For This Post', 'comicpress-manager'),
+      'cpm_show_comic_caller',
+      'post',
+      'normal',
+      'low'
+    );
+  }
+
   $filename = plugin_basename(__FILE__);
 
   if (strpos($plugin_page, $filename) !== false) {

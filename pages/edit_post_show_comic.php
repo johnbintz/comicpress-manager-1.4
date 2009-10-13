@@ -94,112 +94,115 @@ function cpm_show_comic() {
       }
     });
   </script>
-  <div id="comicdiv" class="postbox">
-    <h3><?php _e("Comic For This Post", 'comicpress-manager') ?></h3>
-    <div class="inside" style="overflow: hidden">
-      <?php if (count($cpm_config->comic_files) == 0) { ?>
-        <div style="border: solid #daa 1px; background-color: #ffe7e7; padding: 5px">
-          <strong>It looks like this is a new ComicPress install.</strong> You should test to make
-          sure uploading works correctly by visiting <a href="admin.php?page=<?php echo plugin_basename(realpath(dirname(__FILE__) . '/../comicpress_manager_admin.php')) ?>">ComicPress -> Upload</a>.
-        </div>
-      <?php } ?>
-      <?php if ($has_comic_file) { ?>
-        <div id="comic-hover" style="border: solid black 1px; position: absolute; display: none" onmouseout="hide_comic()">
-          <img id="preview-comic" src="<?php echo $comic_uri ?>" />
-        </div>
-        <a href="#" onclick="return false" onmouseover="show_comic()"><img id="comic-icon" src="<?php echo $icon_uri ?>" height="100" align="right" /></a>
-        <p>
-          <?php printf(__("The comic that will be shown with this post is %s.", 'comicpress-manager'), $link) ?>
-          <?php _e("Mouse over the icon to the right to see a larger version of the image.", 'comicpress-manager') ?>
-        </p>
 
-        <?php
-          if (cpm_get_subcomic_directory() !== false) {
-            printf(__("Comic files will be uploaded to the <strong>%s</strong> comic subdirectory.", 'comicpress-manager'), get_cat_name(get_option('comicpress-manager-manage-subcomic')));
-          }
-        ?>
+  <?php if (count($cpm_config->comic_files) == 0) { ?>
+    <div style="border: solid #daa 1px; background-color: #ffe7e7; padding: 5px">
+      <strong>It looks like this is a new ComicPress install.</strong> You should test to make
+      sure uploading works correctly by visiting <a href="admin.php?page=<?php echo plugin_basename(realpath(dirname(__FILE__) . '/../comicpress_manager_admin.php')) ?>">ComicPress -> Upload</a>.
+    </div>
+  <?php } ?>
+  <?php if ($has_comic_file) { ?>
+    <div id="comic-hover" style="border: solid black 1px; position: absolute; display: none" onmouseout="hide_comic()">
+      <img id="preview-comic" src="<?php echo $comic_uri ?>" />
+    </div>
+    <a href="#" onclick="return false" onmouseover="show_comic()"><img id="comic-icon" src="<?php echo $icon_uri ?>" height="100" align="right" /></a>
+    <p>
+      <?php printf(__("The comic that will be shown with this post is %s.", 'comicpress-manager'), $link) ?>
+      <?php _e("Mouse over the icon to the right to see a larger version of the image.", 'comicpress-manager') ?>
+    </p>
 
-        <?php if (count($thumbnails_found) > 0) { ?>
-          <p><?php _e("The following thumbnails for this comic were also found:", 'comicpress-manager') ?>
-            <?php foreach ($thumbnails_found as $type => $file) { ?>
-              <a target="comic_window" href="<?php echo cpm_build_comic_uri(CPM_DOCUMENT_ROOT . '/' . $file) ?>"><?php echo $type ?></a>
-            <?php } ?>
-          </p>
+    <?php
+      if (cpm_get_subcomic_directory() !== false) {
+        printf(__("Comic files will be uploaded to the <strong>%s</strong> comic subdirectory.", 'comicpress-manager'), get_cat_name(get_option('comicpress-manager-manage-subcomic')));
+      }
+    ?>
+
+    <?php if (count($thumbnails_found) > 0) { ?>
+      <p><?php _e("The following thumbnails for this comic were also found:", 'comicpress-manager') ?>
+        <?php foreach ($thumbnails_found as $type => $file) { ?>
+          <a target="comic_window" href="<?php echo cpm_build_comic_uri(CPM_DOCUMENT_ROOT . '/' . $file) ?>"><?php echo $type ?></a>
         <?php } ?>
-      <?php } ?>
+      </p>
+    <?php } ?>
+  <?php } ?>
 
-      <?php if (cpm_option("cpm-edit-post-integrate") == 1) { ?>
-        <p><em><strong>ComicPress Manager Edit Post file management is enabled.</strong></em> Any changes to post date, or deleting this post, will affect any associated comic files.</p>
-      <?php } ?>
+  <?php if (cpm_option("cpm-edit-post-integrate") == 1) { ?>
+    <p><em><strong>ComicPress Manager Edit Post file management is enabled.</strong></em> Any changes to post date, or deleting this post, will affect any associated comic files.</p>
+  <?php } ?>
 
-      <p><strong>NOTE: Upload errors will not be reported.</strong> If you are having trouble uploading files, use the <a href="admin.php?page=<?php echo plugin_basename(realpath(dirname(__FILE__) . '/../comicpress_manager_admin.php')) ?>">ComicPress -> Upload</a> screen.</p>
+  <p><strong>NOTE: Upload errors will not be reported.</strong> If you are having trouble uploading files, use the <a href="admin.php?page=<?php echo plugin_basename(realpath(dirname(__FILE__) . '/../comicpress_manager_admin.php')) ?>">ComicPress -> Upload</a> screen.</p>
 
-      <table class="form-table">
-        <tr>
-          <th scope="row">
-            <?php if ($has_comic_file) { ?>
-              <?php _e("Replace This Image", 'comicpress-manager') ?>
-            <?php } else { ?>
-              <?php _e("Upload a New Single Image", 'comicpress-manager') ?>
-            <?php } ?>
-          </th>
-          <td>
-            <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo cpm_short_size_string_to_bytes(ini_get('upload_max_filesize')) ?>" />
-            <input type="file" id="comicpress-replace-image" name="comicpress-replace-image" class="button" /> <?php echo (empty($thumbnails_to_generate)) ? "" : __("<em>(thumbnails will be generated)</em>", 'comicpress-manager') ?><br />
-            <?php if ($has_comic_file) { ?>
-              <input type="hidden" name="overwrite-existing-file-choice" value="<?php echo $comic_filename ?>" />
-            <?php } ?>
-            <input type="hidden" name="upload-destination" value="comic" />
-            <input type="hidden" name="thumbnails" value="yes" />
-          </td>
-          <script type="text/javascript">
-            Event.observe('comicpress-replace-image', 'click', function() {
-              [<?php echo (is_array($cpm_config->properties['comiccat'])) ?
-                          implode(",", $cpm_config->properties['comiccat']) :
-                          $cpm_config->properties['comiccat'] ?>].each(function(i) {
-                $('in-category-' + i).checked = true;
-              });
-            });
-          </script>
-        </tr>
-        <?php
-          if (cpm_option('cpm-skip-checks') != 1) {
-            if (!function_exists('get_comic_path')) { ?>
-              <tr>
-                <td colspan="2" style="background-color: #fee; border: solid #daa 1px">
-                  <?php _e('<strong>It looks like you\'re running an older version of ComicPress.</strong> Storyline, hovertext, and transcript are fully supported in <a href="http://comicpress.org/">ComicPress 2.7</a>. You can use hovertext and transcripts in earlier themes by using <tt>get_post_meta($post->ID, "hovertext", true)</tt> and <tt>get_post_meta($post->ID, "transcript", true)</tt>.', 'comicpress-manager') ?>
-                </td>
-              </tr>
-            <?php }
-          } ?>
-        <?php if (get_option('comicpress-enable-storyline-support') == 1) { ?>
+  <table class="form-table">
+    <tr>
+      <th scope="row">
+        <?php if ($has_comic_file) { ?>
+          <?php _e("Replace This Image", 'comicpress-manager') ?>
+        <?php } else { ?>
+          <?php _e("Upload a New Single Image", 'comicpress-manager') ?>
+        <?php } ?>
+      </th>
+      <td>
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo cpm_short_size_string_to_bytes(ini_get('upload_max_filesize')) ?>" />
+        <input type="file" id="comicpress-replace-image" name="comicpress-replace-image" class="button" /> <?php echo (empty($thumbnails_to_generate)) ? "" : __("<em>(thumbnails will be generated)</em>", 'comicpress-manager') ?><br />
+        <?php if ($has_comic_file) { ?>
+          <input type="hidden" name="overwrite-existing-file-choice" value="<?php echo $comic_filename ?>" />
+        <?php } ?>
+        <input type="hidden" name="upload-destination" value="comic" />
+        <input type="hidden" name="thumbnails" value="yes" />
+      </td>
+      <script type="text/javascript">
+        Event.observe('comicpress-replace-image', 'click', function() {
+          [<?php echo (is_array($cpm_config->properties['comiccat'])) ?
+                      implode(",", $cpm_config->properties['comiccat']) :
+                      $cpm_config->properties['comiccat'] ?>].each(function(i) {
+            $('in-category-' + i).checked = true;
+          });
+        });
+      </script>
+    </tr>
+    <?php
+      if (cpm_option('cpm-skip-checks') != 1) {
+        if (!function_exists('get_comic_path')) { ?>
           <tr>
-            <th scope="row">
-              <?php
-                if (count($category_tree) > 1) {
-                  _e("Storyline", 'comicpress-manager');
-                } else {
-                  _e("Category", 'comicpress-manager');
-                }
-              ?>
-            </th>
-            <td>
-              <?php cpm_display_storyline_checkboxes($category_tree, $post_categories, null, "post_category") ?>
+            <td colspan="2" style="background-color: #fee; border: solid #daa 1px">
+              <?php _e('<strong>It looks like you\'re running an older version of ComicPress.</strong> Storyline, hovertext, and transcript are fully supported in <a href="http://comicpress.org/">ComicPress 2.7</a>. You can use hovertext and transcripts in earlier themes by using <tt>get_post_meta($post->ID, "hovertext", true)</tt> and <tt>get_post_meta($post->ID, "transcript", true)</tt>.', 'comicpress-manager') ?>
             </td>
           </tr>
+        <?php }
+      } ?>
+    <?php if (get_option('comicpress-enable-storyline-support') == 1) { ?>
+      <tr>
+        <th scope="row">
+          <?php
+            if (count($category_tree) > 1) {
+              _e("Storyline", 'comicpress-manager');
+            } else {
+              _e("Category", 'comicpress-manager');
+            }
+          ?>
+        </th>
+        <td>
+          <?php cpm_display_storyline_checkboxes($category_tree, $post_categories, null, "post_category") ?>
+        </td>
+      </tr>
+    <?php } ?>
+    <tr>
+      <th scope="row"><?php _e('&lt;img title&gt;/hover text', 'comicpress-manager') ?></th>
+      <td><input type="text" name="comicpress-img-title" style="width:99%" value="<?php echo get_post_meta($post->ID, 'hovertext', true) ?>" /></td>
+    </tr>
+    <tr>
+      <th scope="row"><?php _e("Transcript", 'comicpress-manager') ?></th>
+      <td>
+        <textarea name="comicpress-transcript" rows="8" style="width:99%"><?php echo get_post_meta($post->ID, 'transcript', true) ?></textarea>
+        <?php if (!is_plugin_active('what-did-they-say/what-did-they-say.php')) { ?>
+          <p>
+            <?php _e('Want even better control over your transcripts? Try <a href="http://wordpress.org/extend/plugins/what-did-they-say/" target="wdts">What Did They Say?!?</a>', 'comicpress-manager') ?>
+          </p>
         <?php } ?>
-        <tr>
-          <th scope="row"><?php _e('&lt;img title&gt;/hover text', 'comicpress-manager') ?></th>
-          <td><input type="text" name="comicpress-img-title" size="50" value="<?php echo get_post_meta($post->ID, 'hovertext', true) ?>" /></td>
-        </tr>
-        <tr>
-          <th scope="row"><?php _e("Transcript", 'comicpress-manager') ?></th>
-          <td><textarea name="comicpress-transcript" rows="8" cols="50"><?php echo get_post_meta($post->ID, 'transcript', true) ?></textarea></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
+      </td>
+    </tr>
+  </table>
+  
   <?php
 }
 
