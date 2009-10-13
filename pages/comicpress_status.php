@@ -279,7 +279,7 @@ function cpm_manager_status() {
                             Comic: <?php echo empty($object['file_title']) ? $object['comic_file'] : $object['file_title'] ?>
                           </strong></div>
 
-                          <a href="<?php echo $object['comic_uri'] ?>"><img style="float: right; display: inline; margin-right: 5px; height: 100px" id="comic-icon-<?php echo $image_index ?>" src="<?php echo $object['icon_uri'] ?>" /></a>
+                          <a href="<?php echo $object['comic_uri'] ?>"><img style="float: right; display: inline; margin-right: 5px; max-height: 100px" id="comic-icon-<?php echo $image_index ?>" src="<?php echo $object['icon_uri'] ?>" /></a>
 
                         <?php
                           $all_found = array();
