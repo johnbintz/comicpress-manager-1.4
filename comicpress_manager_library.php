@@ -71,19 +71,36 @@ function cpm_calculate_document_root() {
 
   $document_root = "";
 
-  // a base document root to try and use
-  if (isset($_SERVER['SCRIPT_FILENAME'])) {
-    $document_root = dirname($_SERVER['SCRIPT_FILENAME']);
-  }
+  if (cpm_option('cpm-use-old-subdirectory-method')) {
+    $parsed_url = parse_url(get_option('home'));
 
-  $cwd = getcwd();
-  if ($cwd !== false) {
-    // Strip the wp-admin part and just get to the root.
-    $document_root = preg_replace('#[\\\/]wp-(admin|content).*#', '', $cwd);
-  }
+    $translated_script_filename = str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']);
 
-  if (isset($wpmu_version)) {
-    $document_root = cpm_wpmu_modify_path($document_root);
+    foreach (array('SCRIPT_NAME', 'SCRIPT_URL') as $var_to_try) {
+      $root_to_try = substr($translated_script_filename, 0, -strlen($_SERVER[$var_to_try])) . $parsed_url['path'];
+
+      if (file_exists($root_to_try . '/index.php')) {
+        $document_root = $root_to_try;
+        break;
+      }
+    }
+
+    if (is_null($document_root)) { $document_root = $_SERVER['DOCUMENT_ROOT'] . $parsed_url['path']; }
+  } else {
+    // a base document root to try and use
+    if (isset($_SERVER['SCRIPT_FILENAME'])) {
+      $document_root = dirname($_SERVER['SCRIPT_FILENAME']);
+    }
+
+    $cwd = getcwd();
+    if ($cwd !== false) {
+      // Strip the wp-admin part and just get to the root.
+      $document_root = preg_replace('#[\\\/]wp-(admin|content).*#', '', $cwd);
+    }
+
+    if (isset($wpmu_version)) {
+      $document_root = cpm_wpmu_modify_path($document_root);
+    }
   }
 
   return untrailingslashit($document_root);

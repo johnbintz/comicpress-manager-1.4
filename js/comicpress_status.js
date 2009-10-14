@@ -11,26 +11,16 @@ function toggle_filter(id) {
     }
   }
 
-  if (top.console && top.console.log) {
-    top.console.log(active_filters);
-  }
-
   var rows = document.getElementsByClassName('data-row');
   for (var i = 0, il = rows.length; i < il; ++i) {
     if (any_filters_active) {
       var filter_active = false;
       for (var key in active_filters) {
-        if (top.console && top.console.log) {
-          top.console.log(key);
-        }
         if (active_filters[key] === true) {
           if (rows[i].hasClassName(key)) {
             filter_active = true; break;
           }
         }
-      }
-      if (top.console && top.console.log) {
-        top.console.log(i + ": " + filter_active);
       }
       if (filter_active) {
         Element.show(rows[i]);

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: comicpress-manager 1.4.9\n"
+"Project-Id-Version: comicpress-manager 1.4.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-12 23:05-0400\n"
+"POT-Creation-Date: 2009-10-14 16:30-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: cpm_configuration_options.php:148
+msgid "Use the old method of finding subdirectories"
+msgstr ""
+
+#: cpm_configuration_options.php:151
+msgid ""
+"if your comic directories are at the root of your site, and your WordPress "
+"installation is in a subdirectory, enable this option."
+msgstr ""
 
 #: actions/comicpress_multiple-upload-file.php:7
 #: actions/comicpress_create-missing-posts.php:27
@@ -333,26 +343,26 @@ msgstr ""
 msgid "Now managing <strong>%s</strong>."
 msgstr ""
 
-#: comicpress_manager_library.php:392
+#: comicpress_manager_library.php:409
 msgid ""
 "The current theme isn't the ComicPress theme.  If you've renamed the theme, "
 "ignore this warning."
 msgstr ""
 
-#: comicpress_manager_library.php:396
+#: comicpress_manager_library.php:413
 msgid ""
 "You do not have the Zip extension installed. Uploading a Zip file will not "
 "work."
 msgstr ""
 
-#: comicpress_manager_library.php:404
+#: comicpress_manager_library.php:421
 #, php-format
 msgid ""
 "The comics site root <strong>%s</strong> does not exist. Check your <a href="
 "\"options-general.php\">WordPress address and address settings</a>."
 msgstr ""
 
-#: comicpress_manager_library.php:409
+#: comicpress_manager_library.php:426
 #, php-format
 msgid ""
 "The comics site root <strong>%s</strong> does not contain a WordPress index."
@@ -360,39 +370,39 @@ msgid ""
 "address settings</a>."
 msgstr ""
 
-#: comicpress_manager_library.php:425
+#: comicpress_manager_library.php:442
 #, php-format
 msgid ""
 "The <strong>%s</strong> folders and the comics folder are the same.  You "
 "won't be able to generate thumbnails until you change these folders."
 msgstr ""
 
-#: comicpress_manager_library.php:435
+#: comicpress_manager_library.php:452
 #, php-format
 msgid ""
 "The %1$s <strong>%2$s</strong> does not exist.  Did you create it within the "
 "<strong>%3$s</strong> folder?"
 msgstr ""
 
-#: comicpress_manager_library.php:448
+#: comicpress_manager_library.php:465
 #, php-format
 msgid "The %1$s <strong>%2$s</strong> is not writable by the Webserver."
 msgstr ""
 
-#: comicpress_manager_library.php:459
+#: comicpress_manager_library.php:476
 #, php-format
 msgid ""
 "<strong>Files written to the %s directory by the Webserver cannot be read "
 "again!</strong>  Are you using IIS7 with FastCGI?"
 msgstr ""
 
-#: comicpress_manager_library.php:480
+#: comicpress_manager_library.php:497
 msgid ""
 "No image resize methods are installed (GD or ImageMagick).  You are unable "
 "to generate thumbnails automatically."
 msgstr ""
 
-#: comicpress_manager_library.php:485
+#: comicpress_manager_library.php:502
 msgid ""
 "You need to define at least two categories, a blog category and a comics "
 "category, to use ComicPress.  Visit <a href=\"categories.php\">Manage -> "
@@ -400,45 +410,45 @@ msgid ""
 "continue your configuration."
 msgstr ""
 
-#: comicpress_manager_library.php:492
+#: comicpress_manager_library.php:509
 msgid "All other categories"
 msgstr ""
 
-#: comicpress_manager_library.php:503
+#: comicpress_manager_library.php:520
 msgid ""
 "The comic category needs to be defined as a number, not an alphanumeric "
 "string."
 msgstr ""
 
-#: comicpress_manager_library.php:507
+#: comicpress_manager_library.php:524
 #, php-format
 msgid ""
 "The requested category ID for your comic, <strong>%s</strong>, doesn't exist!"
 msgstr ""
 
-#: comicpress_manager_library.php:518
+#: comicpress_manager_library.php:535
 msgid ""
 "The blog category needs to be defined as a number, not an alphanumeric "
 "string."
 msgstr ""
 
-#: comicpress_manager_library.php:521
+#: comicpress_manager_library.php:538
 #, php-format
 msgid ""
 "The requested category ID for your blog, <strong>%s</strong>, doesn't exist!"
 msgstr ""
 
-#: comicpress_manager_library.php:528
+#: comicpress_manager_library.php:545
 msgid ""
 "Your comic and blog categories are the same.  This will cause browsing "
 "problems for visitors to your site."
 msgstr ""
 
-#: comicpress_manager_library.php:537
+#: comicpress_manager_library.php:554
 msgid "Your comics folder is empty!"
 msgstr ""
 
-#: comicpress_manager_library.php:550
+#: comicpress_manager_library.php:567
 msgid "WordPress Options"
 msgstr ""
 

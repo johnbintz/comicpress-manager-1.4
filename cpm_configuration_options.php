@@ -144,6 +144,13 @@
       "message" => "enable this to use the QuomicPress (Quick ComicPress) posting box on your Dashboard"
     ),
     array(
+      "id" => "cpm-use-old-subdirectory-method",
+      "name" => __("Use the old method of finding subdirectories", 'comicpress-manager'),
+      "type" => "checkbox",
+      'default' => "0",
+      "message" => __("if your comic directories are at the root of your site, and your WordPress installation is in a subdirectory, enable this option.", 'comicpress-manager')
+    ),
+    array(
       "id" => "cpm-upload-permissions",
       "name" => "Unix chmod permissions to assign to uploaded files?",
       "type" => "text",
