@@ -660,6 +660,10 @@ function cpm_post_editor($width = 435, $is_import = false) {
     __(" <em>(the transcript to use for all posts)</em>", 'comicpress-manager')
   );
 
+  if (!is_plugin_active('what-did-they-say/what-did-they-say.php')) {
+    $form_titles_and_fields[] = '<em>' . __('Want even better control over your transcripts? Try <a href="http://wordpress.org/extend/plugins/what-did-they-say/" target="wdts">What Did They Say?!?</a>', 'comicpress-manager') . '</em>';
+  }
+
   $form_titles_and_fields[] = array(
     __("Upload Date Format:", 'comicpress-manager'),
     '<input type="text" name="upload-date-format" />' .
@@ -1048,8 +1052,8 @@ function write_comicpress_config_functions_php($filepath, $just_show_config = fa
  * @return string The view & edit post links for the post.
  */
 function generate_view_edit_post_links($post_info) {
-  $view_post_link = sprintf("<a href=\"{$post_info['guid']}\">%s</a>", __("View post", 'comicpress-manager'));
-  $edit_post_link = sprintf("<a href=\"post.php?action=edit&amp;post={$post_info['ID']}\">%s</a>", __("Edit post", 'comicpress-manager'));
+  $view_post_link = sprintf('<a href="%s">%s</a>', $post_info['guid'], __("View post", 'comicpress-manager'));
+  $edit_post_link = sprintf('<a href="post.php?action=edit&amp;post=%s">%s</a>', $post_info['ID'], __("Edit post", 'comicpress-manager'));
 
   return $view_post_link . ' | ' . $edit_post_link;
 }
