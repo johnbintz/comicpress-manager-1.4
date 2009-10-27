@@ -55,6 +55,7 @@ class TestComicPressManagerLibrary extends UnitTestCase {
       array("${test_date}-Test.jpg", array("title" => "-Test", "date" => $test_date, "converted_title" => "Test")),
       array("${test_date}-test.jpg", array("title" => "-test", "date" => $test_date, "converted_title" => "Test")),
       array("1900-01-01.jpg", false),
+      array("08-01-01.jpg", array("title" => "", "date" => $test_date, "converted_title" => "")),
     ) as $test) {
       list($filename, $expected_value) = $test;
       $this->assertEqual($expected_value, cpm_breakdown_comic_filename($filename, true));
