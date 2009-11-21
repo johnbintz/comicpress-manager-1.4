@@ -188,6 +188,8 @@ function cpm_breakdown_comic_filename($filename, $allow_override = false) {
       $converted_title = ucwords(trim(preg_replace('/[\-\_]/', ' ', $title)));
       $date = date($pattern, strtotime($date));
 
+      if (is_numeric($converted_title)) {	$converted_title = "Title: ${converted_title}"; }
+
       return compact('date', 'title', 'converted_title');
     }
   }
@@ -326,7 +328,7 @@ function cpm_read_comics_folder() {
 
   if ($glob_results === false) {
     //$cpm_config->messages[] = "FYI: glob({$cpm_config->path}/*) returned false. This can happen on some PHP installations if you have no files in your comic directory. This message will disappear once you upload a comic to your site.";
-    return array(); 
+    return array();
   }
 
   $filtered_glob_results = array();
