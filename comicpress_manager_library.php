@@ -188,6 +188,8 @@ function cpm_breakdown_comic_filename($filename, $allow_override = false) {
       $converted_title = ucwords(trim(preg_replace('/[\-\_]/', ' ', $title)));
       $date = date($pattern, strtotime($date));
 
+      if (is_numeric($converted_title)) {	$converted_title = "Title: ${converted_title}"; }
+
       return compact('date', 'title', 'converted_title');
     }
   }

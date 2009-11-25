@@ -30,8 +30,9 @@ function cpm_action_build_storyline_schema() {
       $parts = explode("/", $field);
       if (($parts[0] == "0") && (count($parts) > 1)) {
         $category_id = end($parts);
-        $category = get_category($category_id, ARRAY_A);
+        $category = get_category($category_id);
         if (!empty($category)) {
+        	$category = (array)$category;
           if ($category['cat_name'] != $value) {
             $cpm_config->messages[] = sprintf(__('Category <strong>%1$s</strong> renamed to <strong>%2$s</strong>.', 'comicpress-manager'), $category['cat_name'], $value);
             $category['cat_name'] = $value;
