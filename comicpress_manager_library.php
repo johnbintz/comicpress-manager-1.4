@@ -238,8 +238,9 @@ function generate_post_hash($filename_date, $filename_converted_title) {
     $override_title = $_POST['override-title-to-use'];
     $tags = $_POST['tags'];
     if (get_magic_quotes_gpc()) {
-      $override_title = stripslashes($override_title);
-      $tags = stripslashes($tags);
+    	foreach (array('override_title', 'tags', 'post_content') as $field) {
+    		${$field} = stripslashes(${$field});
+    	}
     }
 
     $post_title    = !empty($override_title) ? $override_title : $filename_converted_title;
@@ -326,7 +327,7 @@ function cpm_read_comics_folder() {
 
   if ($glob_results === false) {
     //$cpm_config->messages[] = "FYI: glob({$cpm_config->path}/*) returned false. This can happen on some PHP installations if you have no files in your comic directory. This message will disappear once you upload a comic to your site.";
-    return array(); 
+    return array();
   }
 
   $filtered_glob_results = array();
