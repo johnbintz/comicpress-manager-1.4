@@ -33,8 +33,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 require_once('comicpress_manager_config.php');
 
 // only load the plugin code of we're in the administration part of WordPress.
-if (WP_ADMIN === true) {  
+if (is_admin()) {
   require_once('comicpress_manager_admin.php');
 }
-
-?>
