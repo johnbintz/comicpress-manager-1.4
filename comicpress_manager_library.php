@@ -240,8 +240,9 @@ function generate_post_hash($filename_date, $filename_converted_title) {
     $override_title = $_POST['override-title-to-use'];
     $tags = $_POST['tags'];
     if (get_magic_quotes_gpc()) {
-      $override_title = stripslashes($override_title);
-      $tags = stripslashes($tags);
+    	foreach (array('override_title', 'tags', 'post_content') as $field) {
+    		${$field} = stripslashes(${$field});
+    	}
     }
 
     $post_title    = !empty($override_title) ? $override_title : $filename_converted_title;

@@ -17,10 +17,10 @@ function cpm_action_update_cpm_config() {
           $validate_function_name = "cpm_validate_cpm_option_" . str_replace("-", "_", $option_info['id']);
           $ok = true;
           if (function_exists($validate_function_name)) {
-            $ok = call_user_func($validate_function_name, $_POST[$option_info['id']]);
+            $ok = call_user_func($validate_function_name, stripslashes($_POST[$option_info['id']]));
           }
-          if ($ok) { 
-            $target_update_options[$target_key] = $_POST[$option_info['id']];
+          if ($ok) {
+            $target_update_options[$target_key] = stripslashes($_POST[$option_info['id']]);
           } else {
             $target_update_options[$target_key] = $option_info['default'];
             update_option($target_key, $option_info['default']);
