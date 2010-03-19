@@ -23,8 +23,11 @@
     // toward one blog/one comic...
     $all_post_dates = array();
 
+		$format = CPM_DATE_FORMAT;
+		if (isset($_POST['format'])) { $format = $_POST['format']; }
+
     foreach (cpm_query_posts() as $comic_post) {
-      $all_post_dates[] = date(CPM_DATE_FORMAT, strtotime($comic_post->post_date));
+      $all_post_dates[] = date($format, strtotime($comic_post->post_date));
     }
     $all_post_dates = array_unique($all_post_dates);
 
@@ -32,7 +35,7 @@
     $missing_comic_count = 0;
     foreach (cpm_read_comics_folder() as $comic_file) {
       $comic_file = pathinfo($comic_file, PATHINFO_BASENAME);
-      if (($result = cpm_breakdown_comic_filename($comic_file)) !== false) {
+      if (($result = cpm_breakdown_comic_filename($comic_file, $format)) !== false) {
         if (!in_array($result['date'], $all_post_dates)) {
           if (($post_hash = generate_post_hash($result['date'], $result['converted_title'])) !== false) {
             $missing_comic_count++;

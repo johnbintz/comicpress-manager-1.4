@@ -504,7 +504,7 @@ function cpm_generate_additional_categories_checkboxes($override_name = null) {
   $additional_categories = array();
 
   $invalid_ids = array($cpm_config->properties['blogcat']);
-  
+
   extract(cpm_get_all_comic_categories());
   foreach ($category_tree as $node) {
     $invalid_ids[] = end(explode('/', $node));
@@ -666,7 +666,7 @@ function cpm_post_editor($width = 435, $is_import = false) {
 
   $form_titles_and_fields[] = array(
     __("Upload Date Format:", 'comicpress-manager'),
-    '<input type="text" name="upload-date-format" />' .
+    '<input type="text" id="upload-date-format" name="upload-date-format" />' .
     __(" <em>(if the files you are uploading have a different date format, specify it here. ex: <strong>Ymd</strong> for a file named <strong>20080101-my-new-years-day.jpg</strong>)</em>", 'comicpress-manager')
   );
 
@@ -1416,7 +1416,7 @@ function cpm_handle_file_uploads($files) {
   if (($subdir = cpm_get_subcomic_directory()) !== false) {
     $target_root .= '/' . $subdir;
   }
-  
+
   $write_thumbnails = isset($_POST['thumbnails']) && ($_POST['upload-destination'] == "comic");
   $new_post = isset($_POST['new_post']) && ($_POST['upload-destination'] == "comic");
 
@@ -1748,7 +1748,7 @@ function cpm_display_operation_messages($info) {
   if (count($thumbnails_written) > 0) {
     $cpm_config->messages[] = __("<strong>Thumbnails were written for the following files:</strong> ", 'comicpress-manager') . implode(", ", $thumbnails_written);
   }
-  
+
   if (count($thumbnails_not_written) > 0) {
     $cpm_config->messages[] = __("<strong>Thumbnails were not written for the following files.</strong>  Check the permissions on the rss &amp; archive folders, and make sure the files you're processing are valid image files: ", 'comicpress-manager') . implode(", ", $thumbnails_not_written);
   }
@@ -2049,7 +2049,7 @@ function cpm_available_backup_files_sort($a, $b) {
 function cpm_handle_actions() {
   global $cpm_config;
 
-  $valid_actions = array('multiple-upload-file', 'create-missing-posts', 
+  $valid_actions = array('multiple-upload-file', 'create-missing-posts',
                          'update-config', 'restore-backup', 'change-dates',
                          'write-comic-post', 'update-cpm-config', 'do-first-run', 'skip-first-run',
                          'build-storyline-schema', 'batch-processing', 'manage-subcomic');
@@ -2362,7 +2362,7 @@ function cpm_manager_edit_config() {
           $files = glob($file . "/*");
           if (is_array($files)) {
             $folder_stack = array_merge($folder_stack, $files);
-          } 
+          }
         } else {
           if (!$max_depth_message) {
             $cpm_config->messages[] = sprintf(__("I went %s levels deep in my search for comic directories. Are you sure you have your site set up correctly?", 'comicpress-manager'), $max_depth);
@@ -2418,13 +2418,13 @@ function cpm_manager_edit_config() {
                   <input type="radio" name="folder-<?php echo $config_id ?>" id="folder-s-<?php echo $config_id ?>" value="select" <?php echo $directory_found_in_list ? "checked" : "" ?>/> <label for="folder-s-<?php echo $config_id ?>">Select directory from a list</label><br />
                   <div id="folder-select-<?php echo $config_id ?>">
                     <select title="<?php _e("List of possible folders at the root of your site", 'comicpress-manager') ?>" name="select-<?php echo $config_id ?>" id="<?php echo $config_id ?>">
-                    <?php 
+                    <?php
                       foreach ($found_folders as $file) { ?>
                         <option <?php echo ($file == $cpm_config->properties[$config_id]) ? " selected" : "" ?> value="<?php echo $file ?>"><?php echo $file ?></option>
                       <?php } ?>
                     </select><?php echo $description ?>
                   </div>
-                  
+
                   <input type="radio" name="folder-<?php echo $config_id ?>" id="folder-e-<?php echo $config_id ?>" value="enter" <?php echo !$directory_found_in_list ? "checked" : "" ?>/> <label for="folder-e-<?php echo $config_id ?>">Enter in my directory name</label><br />
                   <div id="folder-enter-<?php echo $config_id ?>">
                     <input type="text" name="enter-<?php echo $config_id ?>" value="<?php echo $cpm_config->properties[$config_id] ?>" />

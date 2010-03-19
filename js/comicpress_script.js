@@ -143,7 +143,8 @@ function prepare_comicpress_manager() {
                        {
                          method: 'post',
                          parameters: {
-                           action: "count-missing-posts"
+                           action: "count-missing-posts",
+                           format: $('upload-date-format').value
                          },
                          onSuccess: function(transport) {
                            if (transport.headerJSON) {
