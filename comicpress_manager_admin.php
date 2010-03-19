@@ -1110,6 +1110,8 @@ function cpm_write_thumbnail($input, $target_filename, $do_rebuild = false) {
         case CPM_SCALE_NONE:
           return null;
         case CPM_SCALE_IMAGEMAGICK:
+        	$original_size = getimagesize($input);
+
           $unique_colors = exec("identify -format '%k' '${input}'");
           if (empty($unique_colors)) { $unique_colors = 256; }
 
@@ -1119,43 +1121,47 @@ function cpm_write_thumbnail($input, $target_filename, $do_rebuild = false) {
                             ? $cpm_config->properties["${type}_comic_width"]
                             : $cpm_config->properties['archive_comic_width'];
 
-            $command = array("convert",
-                             "\"${input}\"",
-                             "-filter Lanczos",
-                             "-resize " . $width_to_use . "x");
+            if ($width_to_use < $original_size[0]) {
+							$command = array("convert",
+															 "\"${input}\"",
+															 "-filter Lanczos",
+															 "-resize " . $width_to_use . "x");
 
-            $im_target = $target;
+							$im_target = $target;
 
-            switch(strtolower($target_format)) {
-              case "jpg":
-              case "jpeg":
-                $command[] = "-quality " . cpm_option("cpm-thumbnail-quality");
-                break;
-              case "gif":
-                $command[] = "-colors ${unique_colors}";
-                break;
-              case "png":
-                if ($unique_colors <= 256) {
-                  $im_target = "png8:${im_target}";
-                  $command[] = "-colors ${unique_colors}";
-                }
-                $command[] = "-quality 100";
-                break;
-              default:
-            }
+							switch(strtolower($target_format)) {
+								case "jpg":
+								case "jpeg":
+									$command[] = "-quality " . cpm_option("cpm-thumbnail-quality");
+									break;
+								case "gif":
+									$command[] = "-colors ${unique_colors}";
+									break;
+								case "png":
+									if ($unique_colors <= 256) {
+										$im_target = "png8:${im_target}";
+										$command[] = "-colors ${unique_colors}";
+									}
+									$command[] = "-quality 100";
+									break;
+								default:
+							}
 
-            $command[] = "\"${im_target}\"";
+							$command[] = "\"${im_target}\"";
 
-            $convert_to_thumb = escapeshellcmd(implode(" ", $command));
+							$convert_to_thumb = escapeshellcmd(implode(" ", $command));
 
-            exec($convert_to_thumb);
+							exec($convert_to_thumb);
 
-            if (!file_exists($target)) {
-              $ok = false;
-            } else {
-              @chmod($target, CPM_FILE_UPLOAD_CHMOD);
-              $files_created_in_operation[] = $target;
-            }
+							if (!file_exists($target)) {
+								$ok = false;
+							} else {
+								@chmod($target, CPM_FILE_UPLOAD_CHMOD);
+								$files_created_in_operation[] = $target;
+							}
+						} else {
+							copy($input, $target);
+						}
           }
 
           return ($ok) ? $files_created_in_operation :false ;
@@ -1197,85 +1203,89 @@ function cpm_write_thumbnail($input, $target_filename, $do_rebuild = false) {
                               ? $cpm_config->properties["${type}_comic_width"]
                               : $cpm_config->properties['archive_comic_width'];
 
-              $archive_comic_height = (int)(($width_to_use * $height) / $width);
+							if ($width_to_use < $width) {
+								$archive_comic_height = (int)(($width_to_use * $height) / $width);
 
-              $pathinfo = pathinfo($input);
+								$pathinfo = pathinfo($input);
 
-              $thumb_image = imagecreatetruecolor($width_to_use, $archive_comic_height);
-              imagealphablending($thumb_image, true);
-              switch(strtolower($pathinfo['extension'])) {
-                case "jpg":
-                case "jpeg":
-                  $comic_image = imagecreatefromjpeg($input);
-                  break;
-                case "gif":
-                  $is_gif = true;
+								$thumb_image = imagecreatetruecolor($width_to_use, $archive_comic_height);
+								imagealphablending($thumb_image, true);
+								switch(strtolower($pathinfo['extension'])) {
+									case "jpg":
+									case "jpeg":
+										$comic_image = imagecreatefromjpeg($input);
+										break;
+									case "gif":
+										$is_gif = true;
 
-                  $temp_comic_image = imagecreatefromgif($input);
+										$temp_comic_image = imagecreatefromgif($input);
 
-                  list($width, $height) = getimagesize($input);
-                  $comic_image = imagecreatetruecolor($width, $height);
+										list($width, $height) = getimagesize($input);
+										$comic_image = imagecreatetruecolor($width, $height);
 
-                  imagecopy($comic_image, $temp_comic_image, 0, 0, 0, 0, $width, $height);
-                  imagedestroy($temp_comic_image);
-                  break;
-                case "png":
-                  $comic_image = imagecreatefrompng($input);
-                  break;
-                default:
-                  return false;
-              }
-              imagealphablending($comic_image, true);
+										imagecopy($comic_image, $temp_comic_image, 0, 0, 0, 0, $width, $height);
+										imagedestroy($temp_comic_image);
+										break;
+									case "png":
+										$comic_image = imagecreatefrompng($input);
+										break;
+									default:
+										return false;
+								}
+								imagealphablending($comic_image, true);
 
-              if ($is_palette = !imageistruecolor($comic_image)) {
-                $number_of_colors = imagecolorstotal($comic_image);
-              }
+								if ($is_palette = !imageistruecolor($comic_image)) {
+									$number_of_colors = imagecolorstotal($comic_image);
+								}
 
-              imagecopyresampled($thumb_image, $comic_image, 0, 0, 0, 0, $width_to_use, $archive_comic_height, $width, $height);
+								imagecopyresampled($thumb_image, $comic_image, 0, 0, 0, 0, $width_to_use, $archive_comic_height, $width, $height);
 
-              $ok = true;
+								$ok = true;
 
-              @touch($target);
-              if (file_exists($target)) {
-                @unlink($target);
-                switch(strtolower($target_format)) {
-                  case "jpg":
-                  case "jpeg":
-                    if (imagetypes() & IMG_JPG) {
-                      @imagejpeg($thumb_image, $target, cpm_option("cpm-thumbnail-quality"));
-                    } else {
-                      return false;
-                    }
-                    break;
-                  case "gif":
-                    if (imagetypes() & IMG_GIF) {
-                      if (function_exists('imagecolormatch')) {
-                        $temp_comic_image = imagecreate($width_to_use, $archive_comic_height);
-                        imagecopymerge($temp_comic_image, $thumb_image, 0, 0, 0, 0, $width_to_use, $archive_comic_height, 100);
-                        imagecolormatch($thumb_image, $temp_comic_image);
+								@touch($target);
+								if (file_exists($target)) {
+									@unlink($target);
+									switch(strtolower($target_format)) {
+										case "jpg":
+										case "jpeg":
+											if (imagetypes() & IMG_JPG) {
+												@imagejpeg($thumb_image, $target, cpm_option("cpm-thumbnail-quality"));
+											} else {
+												return false;
+											}
+											break;
+										case "gif":
+											if (imagetypes() & IMG_GIF) {
+												if (function_exists('imagecolormatch')) {
+													$temp_comic_image = imagecreate($width_to_use, $archive_comic_height);
+													imagecopymerge($temp_comic_image, $thumb_image, 0, 0, 0, 0, $width_to_use, $archive_comic_height, 100);
+													imagecolormatch($thumb_image, $temp_comic_image);
 
-                        @imagegif($temp_comic_image, $target);
-                        imagedestroy($temp_comic_image);
-                      } else {
-                        @imagegif($thumb_image, $target);
-                      }
-                    } else {
-                      return false;
-                    }
-                    break;
-                  case "png":
-                    if (imagetypes() & IMG_PNG) {
-                      if ($is_palette) {
-                        imagetruecolortopalette($thumb_image, true, $number_of_colors);
-                      }
-                      @imagepng($thumb_image, $target, 9);
-                    } else {
-                      return false;
-                    }
-                    break;
-                  default:
-                    return false;
-                }
+													@imagegif($temp_comic_image, $target);
+													imagedestroy($temp_comic_image);
+												} else {
+													@imagegif($thumb_image, $target);
+												}
+											} else {
+												return false;
+											}
+											break;
+										case "png":
+											if (imagetypes() & IMG_PNG) {
+												if ($is_palette) {
+													imagetruecolortopalette($thumb_image, true, $number_of_colors);
+												}
+												@imagepng($thumb_image, $target, 9);
+											} else {
+												return false;
+											}
+											break;
+										default:
+											return false;
+									}
+								}
+              } else {
+              	copy($input, $target);
               }
 
               if (!file_exists($target)) {

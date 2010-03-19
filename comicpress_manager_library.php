@@ -173,8 +173,11 @@ function cpm_build_comic_uri($filename, $base_dir = null) {
 function cpm_breakdown_comic_filename($filename, $allow_override = false) {
   $pattern = CPM_DATE_FORMAT;
   if ($allow_override !== false) {
-  	$pattern = $allow_override;
-    if (isset($_POST['upload-date-format']) && !empty($_POST['upload-date-format'])) { $pattern = $_POST['upload-date-format']; }
+  	if (is_string($allow_override)) {
+  		$pattern = $allow_override;
+  	} else {
+	    if (isset($_POST['upload-date-format']) && !empty($_POST['upload-date-format'])) { $pattern = $_POST['upload-date-format']; }
+	  }
   }
 
   foreach (array('[0-9]{4}', '[0-9]{2}') as $year_pattern) {
