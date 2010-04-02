@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestImportComic</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestImportComic</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wordpress-mu/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Hovertext</td>
+	<td>hovertext</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Transcript</td>
+	<td>transcript</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-comic_folder</td>
+	<td>comics</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-rss_comic_folder</td>
+	<td>comics-rss</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-archive_comic_folder</td>
+	<td>comics-archive</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-edit-post-integrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-override-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-tags</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No new posts created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='toplevel_page_comicpress-manager-comicpress_manager_admin']/div[2]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>count-missing-posts-clicker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='create-missing-posts-holder']//div[1]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>time</td>
+	<td>12:00am</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hovertext-to-use</td>
+	<td>${hovertext}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>transcript-to-use</td>
+	<td>${transcript}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New thumbnails were not needed for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New posts created. View them from the links below:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sample Comic (1990-01-01 00:00:00)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='cpm-messages']//a[text()='Edit post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager Edit Post file management is enabled.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//span[@id='timestamp']</td>
+	<td>Published on: Jan 1, 1990 @ 0:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicdiv']/div[@class='inside']//strong[1]</td>
+	<td>1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>comicpress-img-title</td>
+	<td>${hovertext}</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>comicpress-transcript</td>
+	<td>${transcript}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='comicdiv']//table[@class='form-table']//tr[2]//div[1]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete this post 'Sample Comic'<br />&nbsp;&nbsp;'Cancel' to stop, 'OK' to delete.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='toplevel_page_comicpress-manager-comicpress_manager_admin']/div[2]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='import-count-information']</td>
+	<td>import_count</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>/safely import ([0-9]+) comics/.test(storedVars['import_count']); storedVars['import_count'] = RegExp.$1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class='activity-box']/h2</td>
+	<td>Bulk Edit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/good-large-import.zip</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>time</td>
+	<td>12:00am</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>200000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='toplevel_page_comicpress-manager-comicpress_manager_admin']/div[2]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>count-missing-posts-clicker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='cpm-messages']/ul/li[1]</td>
+	<td>Import safely exited before you ran out of execution time. Scroll down to continue creating missing posts.</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>storedVars['index'] = storedVars['import_count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>storedVars['index'] &gt; 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='cpm-messages']/ul/li[last()]/ul/li[${index}]/strong</td>
+	<td>Sample Import Comic</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>regexp:1990-01-[0-9][0-9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>storedVars['index']--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Continue Creating Posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='cpm-messages']/ul/li[1]</td>
+	<td>Import safely exited before you ran out of execution time. Scroll down to continue creating missing posts.</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>storedVars['index'] = storedVars['import_count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>storedVars['index'] &gt; 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sample Import Comic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>regexp:1990-01-[0-9][0-9] 00:00:00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>storedVars['index']--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Continue Creating Posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No new posts needed to be created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No items to display</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-UPPERCASE-COMIC.JPG</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='toplevel_page_comicpress-manager-comicpress_manager_admin']/div[2]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>count-missing-posts-clicker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//span[@id='missing-posts-display']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

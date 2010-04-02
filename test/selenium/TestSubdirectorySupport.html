@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestSubdirectorySupport</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestSubdirectorySupport</td></tr>
+</thead><tbody>
+<!--Sub Directories-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<!--Sidebar-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comics folder: comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Archive folder: comics-archive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>RSS feed folder: comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Comics folder: comics/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Archive folder: comics-archive/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>RSS feed folder: comics-rss/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//select[@name='comic']/option[text()='Guild of Thieves']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>comic</td>
+	<td>label=Guild of Thieves</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Now managing Guild of Thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comics folder: comics/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Archive folder: comics-archive/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>RSS feed folder: comics-rss/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//select[@name='comic']/option[text()='Guild of Thieves']</td>
+	<td></td>
+</tr>
+<!--Switch Twice-->
+<tr>
+	<td>select</td>
+	<td>comic</td>
+	<td>label=Volume 2: Candynomics</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Now managing Volume 2: Candynomics.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>comic</td>
+	<td>Volume 2: Candynomics</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>comic</td>
+	<td>label=Guild of Thieves</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Now managing Guild of Thieves.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>comic</td>
+	<td>Guild of Thieves</td>
+</tr>
+<!--Upload-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reminder: You are managing the Guild of Thieves comic subdirectory.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[1]/label/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[2]/label/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Bulk Edit Modified-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[contains(@src, 'comics-archive/guild-of-thieves/1990-01-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-archive/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-rss/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Import-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reminder: You are managing the Guild of Thieves comic subdirectory.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Import')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>count-missing-posts-clicker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='cpm-activity-column']/div/table/tbody/tr/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>missing-posts-display</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[1]/label/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[2]/label/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New thumbnails were not needed for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sample Comic (1990-01-01 00:00:00)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>title</td>
+	<td>Sample Comic</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-rss/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-archive/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>*'Sample Comic'*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Post deleted.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//select[@id='dates']/option[text()='January 1990']</td>
+	<td></td>
+</tr>
+<!--QuomicPress-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>It looks like this is a new ComicPress install.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>in the Guild of Thieves category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>will be uploaded to the Guild of Thieves comic subdirectory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>title</td>
+	<td>Sample Comic</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-rss/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[contains(@href, 'comics-archive/guild-of-thieves/1990-01')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>will be uploaded to the Guild of Thieves comic subdirectory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>moved to the trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//select[@id='dates']/option[text()='January 1990']</td>
+	<td></td>
+</tr>
+<!--Tear Down-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>comic</td>
+	<td>label=A Moment of Clarity (default)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Comics folder: comics/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Archive folder: comics-archive/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>RSS feed folder: comics-rss/guild-of-thieves</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Comics folder: comics/comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Archive folder: comics-archive/comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>RSS feed folder: comics-rss/comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comics folder: comics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Archive folder: comics-archive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>RSS feed folder: comics</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

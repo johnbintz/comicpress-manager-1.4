@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestChangeComicPressConfigNoDeleteLatestComic</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestChangeComicPressConfigNoDeleteLatestComic</td></tr>
+</thead><tbody>
+<!--Upload a comic for today-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>n = new Date(); storedVars['upload_date'] = n.getFullYear() + &quot;-&quot; + (n.getMonth() + 1) + &quot;-&quot; + n.getDate();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>override-date</td>
+	<td>${upload_date}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>top-submit</td>
+	<td></td>
+</tr>
+<!--Ensure Comic is Uploaded-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>post_location</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>preview-comic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Change the Config-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<!--Ensure Comic is Still Uploaded-->
+<tr>
+	<td>open</td>
+	<td>${post_location}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>preview-comic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Post moved to the trash.</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://leapingsheepfarm.com/" />
+<title>DoTeardown</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DoTeardown</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wordpress-mu/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>keep_tearing_down</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//select[@id='dates']/option[last()]</td>
+	<td>last_date</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>&quot;${last_date}&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>gotoIf</td>
+	<td>&quot;${last_date}&quot; != &quot;January 1990&quot;</td>
+	<td>skip_teardown</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>goto</td>
+	<td>keep_tearing_down</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>skip_teardown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-edit-post-integrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-override-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-tags</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
