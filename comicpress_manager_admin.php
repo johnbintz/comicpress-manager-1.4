@@ -2124,7 +2124,7 @@ function cpm_show_comicpress_details() {
                 <?php $too_many_comics_message = trim(ob_get_clean());
               } ?>
 
-            <?php printf(__ngettext('(%d comic in folder%s)', '(%d comics in folder%s)', count($cpm_config->comic_files), 'comicpress-manager'), count($cpm_config->comic_files), $too_many_comics_message) ?>
+            <?php printf(_n('(%d comic in folder%s)', '(%d comics in folder%s)', count($cpm_config->comic_files), 'comicpress-manager'), count($cpm_config->comic_files), $too_many_comics_message) ?>
         </li>
 
         <?php foreach (array('archive' => __('Archive folder:', 'comicpress-manager'),
