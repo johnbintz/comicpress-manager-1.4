@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestFirstRun</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestFirstRun</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-comic_folder</td>
+	<td>bad1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-rss_comic_folder</td>
+	<td>bad2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-archive_comic_folder</td>
+	<td>bad3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create your comics, archive, or RSS folders first</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Create your comics, archive, or RSS folders first, then reload this page and use the dropdowns to select the target folder.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wpmu/comic/wp-admin/options.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-manager-cpm-did-first-run</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ComicPress Manager First Run</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-comic_folder</td>
+	<td>bad1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-rss_comic_folder</td>
+	<td>bad2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-archive_comic_folder</td>
+	<td>bad3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wpmu/comic/wp-admin/options.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-manager-cpm-did-first-run</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager First Run</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value=&quot;No, I'll make them myself&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The comic folder bad1 does not exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wpmu/comic/wp-admin/options.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-manager-cpm-did-first-run</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ComicPress Manager First Run</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-comic_folder</td>
+	<td>bad1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-rss_comic_folder</td>
+	<td>bad2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-e-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>enter-archive_comic_folder</td>
+	<td>bad3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wpmu/comic/wp-admin/options.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-manager-cpm-did-first-run</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager First Run</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ComicPress Manager First Run</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The comic folder bad1 does not exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-rss_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>folder-s-archive_comic_folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-comic_folder</td>
+	<td>comics</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-rss_comic_folder</td>
+	<td>comics-rss</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>select-archive_comic_folder</td>
+	<td>comics-archive</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Update Config']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

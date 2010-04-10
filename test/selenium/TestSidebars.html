@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://comicpress.local/" />
+<title>TestSidebars</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestSidebars</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[contains(@src, 'comicpress-icon.png')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cpm-sidebar-type</td>
+	<td>label=ComicPress Status and Help</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='cpm-activity-column'][@class='no-sidebar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comicpress-details']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comicpress-details']//a[text()='comicpress-config.php']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='comicpress-details']//a[text()='comicpress-config.php']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//h2[text()='Edit ComicPress Config']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeSelectedLabel</td>
+	<td>comiccat</td>
+	<td>comiccat</td>
+</tr>
+<tr>
+	<td>storeSelectedLabel</td>
+	<td>blogcat</td>
+	<td>blogcat</td>
+</tr>
+<tr>
+	<td>storeSelectedValue</td>
+	<td>select-comic_folder</td>
+	<td>comic_folder</td>
+</tr>
+<tr>
+	<td>storeSelectedValue</td>
+	<td>select-rss_comic_folder</td>
+	<td>rss_comic_folder</td>
+</tr>
+<tr>
+	<td>storeSelectedValue</td>
+	<td>select-archive_comic_folder</td>
+	<td>archive_comic_folder</td>
+</tr>
+<tr>
+	<td>storeSelectedValue</td>
+	<td>select-mini_comic_folder</td>
+	<td>mini_comic_folder</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[6]/a</td>
+	<td>${comiccat}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[7]/a</td>
+	<td>${blogcat}</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comics folder:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Archive folder: ${archive_comic_folder}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>RSS feed folder: ${rss_comic_folder}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Minithumb folder: ${mini_comic_folder}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='Show debug info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cpm-sidebar-type</td>
+	<td>label=Latest Comic Posts</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//span[@id='debug-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='cpm-activity-column'][@class='no-sidebar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comicpress-latest-posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cpm-sidebar-type</td>
+	<td>label=No Sidebar</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='cpm-activity-column'][@class='no-sidebar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cpm-sidebar-type</td>
+	<td>label=ComicPress Status and Help</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestReplaceComicFile</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestReplaceComicFile</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>50000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeElementWidth</td>
+	<td>//img[@id='comic-icon']</td>
+	<td>width</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comic-for-this-post']//strong/a[contains(@href, 'sample-comic.jpeg')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-replace-image</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-wider-than-longer.png</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='save-post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotElementWidth</td>
+	<td>//img[@id='comic-icon']</td>
+	<td>${width}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comic-for-this-post']//strong/a[contains(@href, 'sample-comic.png')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>//tr[@id='rebuild-thumbnails']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No new posts created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeElementWidth</td>
+	<td>//td[@class='comic']//img</td>
+	<td>width</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-wider-than-longer.png</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>overwrite-existing-file-choice</td>
+	<td>label=1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='1990-01-01-sample-comic.jpeg']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//tr[@id='rebuild-thumbnails']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>upload-destination</td>
+	<td>label=Archive folder</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='archive_comic']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>//tr[@id='rebuild-thumbnails']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>upload-destination</td>
+	<td>label=Comics folder</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='comic']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No new posts created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Uploaded file 1990-01-01-wider-than-longer.png renamed to 1990-01-01-sample-comic.png.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.png</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.png</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotElementWidth</td>
+	<td>//td[@class='comic']//img</td>
+	<td>${width}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

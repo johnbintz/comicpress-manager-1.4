@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestComicPressManagerConfig</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestComicPressManagerConfig</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/comicpress_manager_mu/wordpress-mu/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>cpm-default-post-time</td>
+	<td>original_time</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>cpm-default-override-title</td>
+	<td>original_title</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>cpm-default-post-tags</td>
+	<td>original_tags</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Title</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Tags</td>
+	<td>tags</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>7:38am</td>
+	<td>time</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>${time}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-override-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-tags</td>
+	<td>${tags}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cpm-default-post-time</td>
+	<td>${time}</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cpm-default-override-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cpm-default-post-tags</td>
+	<td>${tags}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>${original_time}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-override-title</td>
+	<td>${original_title}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-tags</td>
+	<td>${original_tags}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>meow123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-override-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>cpm-default-post-time</td>
+	<td>meow123</td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>cpm-default-post-time</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You entered invalid data into your configuration.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='multiple-new-post-holder']/table[@class='form-table'][2]//td[1]//div[1]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[@id='multiple-new-post-holder']/table[@class='form-table'][2]//td[1]//div[last()]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[@id='multiple-new-post-holder']/table[@class='form-table'][2]//td[1]//div[1]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='multiple-new-post-holder']/table[@class='form-table'][2]//td[1]//div[last()]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>//input[@name='cpm-default-additional-categories[]'][1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//input[@name='additional-categories[]'][1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>//input[@name='cpm-default-additional-categories[]'][1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//input[@name='additional-categories[]'][1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>cpm-sidebar-type</td>
+	<td>label=ComicPress Status and Help</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-edit-post-integrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager configuration updated.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@href='post-new.php']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ComicPress Manager Edit Post file management is enabled.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-edit-post-integrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@href='post-new.php']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ComicPress Manager Edit Post file management is enabled.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-perform-gd-check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-not-jpeg.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>According to GD, the following files were invalid image files</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-perform-gd-check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-not-jpeg.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-sample-comic-not-jpeg.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-perform-gd-check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[4]//em[@title='Generation disabled']</td>
+	<td>not generating</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='comicpress-details']//li[5]//em[@title='Generation disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>rss thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>archive thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>If enabled, you'll be writing thumbnails to: rss</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>(thumbnails will be generated)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='comicpress-details']//li[4]//em[@title='Generation disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[5]//em[@title='Generation disabled']</td>
+	<td>not generating</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>rss thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>archive thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>If enabled, you'll be writing thumbnails to: archive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>(thumbnails will be generated)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[4]//em[@title='Generation disabled']</td>
+	<td>not generating</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[5]//em[@title='Generation disabled']</td>
+	<td>not generating</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>rss thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>archive thumbnails that are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Generate thumbnails:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>(thumbnails will be generated)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='comicpress-details']//li[4]//em[@title='Generation disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='comicpress-details']//li[5]//em[@title='Generation disabled']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

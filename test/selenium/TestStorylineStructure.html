@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://comicpress.local" />
+<title>TestStorylineStructure</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestStorylineStructure</td></tr>
+</thead><tbody>
+<!--Basics-->
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@name='original-categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//div[@id='storyline-holder']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>//div[@id='storyline-holder']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>//div[@id='storyline-holder']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//div[@id='storyline-holder']</td>
+	<td></td>
+</tr>
+<!--New Categories-->
+<tr>
+	<td>store</td>
+	<td>Selenium Test Category 123</td>
+	<td>catname1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Test Category 234</td>
+	<td>catname2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[1]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[2]/input</td>
+	<td>${catname1}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='storyline-holder']/div[2]/input[@value='${catname1}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]//a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[3]/input</td>
+	<td>${catname2}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='storyline-holder']/div[3]/input[@value='${catname2}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[3]//a[@class='up']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='storyline-holder']/div[2]/input[@value='${catname2}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='storyline-holder']/div[3]/input[@value='${catname1}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[3]//a[@class='delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]//a[@class='delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='storyline-holder']/div[3]/input[@value='${catname1}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='storyline-holder']/div[2]/input[@value='${catname2}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@id='comic-for-this-post']//*[text()=&quot;Storyline&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comic-for-this-post']//th[contains(text(),&quot;Storyline&quot;)]</td>
+	<td></td>
+</tr>
+<!--Modifying Categories in WordPress-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[1]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[2]/input</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comic-for-this-post']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='categories-all']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='multiple-new-post-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Import')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='create-missing-posts-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<!--Change Slug-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Selenium Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Selenium Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cat_name</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>category_nicename</td>
+	<td>selenium-test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>category_nicename</td>
+	<td>selenium-test2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test2')]</td>
+	<td></td>
+</tr>
+<!--Check After Slug Change-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comic-for-this-post']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='categories-all']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='multiple-new-post-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Import')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='create-missing-posts-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<!--Change Slug Again-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Selenium Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cat_name</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>category_nicename</td>
+	<td>selenium-test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>category_nicename</td>
+	<td>selenium-test3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test3')]</td>
+	<td></td>
+</tr>
+<!--Check After Slug Change-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comic-for-this-post']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='categories-all']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='multiple-new-post-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Import')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='create-missing-posts-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<!--Add Another Storyline Category-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[3]/input</td>
+	<td>Selenium Two</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Two created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Selenium Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Selenium Two</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test3')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-two')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Selenium Two')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cat_name</td>
+	<td>Selenium Two</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>category_nicename</td>
+	<td>selenium-two</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>category_nicename</td>
+	<td>selenium-two2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-test3')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(@class, 'slug') and contains(text(), 'selenium-two2')]</td>
+	<td></td>
+</tr>
+<!--Check After Slug Change-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Two']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comic-for-this-post']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='categories-all']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comic-for-this-post']</td>
+	<td>*Selenium Two*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='categories-all']</td>
+	<td>*Selenium Two*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='multiple-new-post-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='multiple-new-post-holder']</td>
+	<td>*Selenium Two*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Import')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='create-missing-posts-holder']</td>
+	<td>*Selenium Test*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='create-missing-posts-holder']</td>
+	<td>*Selenium Two*</td>
+</tr>
+<!--Cleanup-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>storyline-holder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@value='Selenium Two']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]/div/a[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@value='Selenium Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]/div/a[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@value='Selenium Two']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test deleted.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Two deleted.</td>
+	<td></td>
+</tr>
+<!--Add Comic to New Category, Delete Category, Intelligently Reassign To Parent Category-->
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[1]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[2]/input</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]//a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='storyline-holder']/div[3]/input</td>
+	<td>Selenium Test Child</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test Child created.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>//th[contains(text(), &quot;Storyline:&quot;)]/..//div[1]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>//th[contains(text(), &quot;Storyline:&quot;)]/..//div[3]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>edit_post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//th[contains(text(), &quot;Storyline&quot;)]/..//div[3]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[3]/div/a[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test Child deleted.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following orphaned comic posts were placed into their original category's parent:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Storyline structure saved.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>m</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>post-query-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//table[contains(@class, 'widefat')]//span[@class='edit']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//th[contains(text(), &quot;Storyline&quot;)]/..//div[2]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>*Sample Comic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Post deleted.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='storyline-holder']/div[2]/div/a[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save Structure and Modify Categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Category Selenium Test deleted.</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

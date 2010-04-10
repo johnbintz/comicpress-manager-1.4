@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestUploadComicFile</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestUploadComicFile</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Title</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Hovertext</td>
+	<td>hovertext</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Selenium Transcript</td>
+	<td>transcript</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-perform-gd-check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-archive-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-rss-generate-thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ComicPress Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>comic</td>
+	<td>label=A Moment of Clarity (default)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Now managing A Moment of Clarity.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[3]//em</td>
+	<td>generating</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='comicpress-details']//li[4]//em</td>
+	<td>generating</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>override-title-to-use</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hovertext-to-use</td>
+	<td>${hovertext}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>transcript-to-use</td>
+	<td>${transcript}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='cpm-messages']//a[text()='Edit post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//span[@id='timestamp']/b[contains(text(), 'Jan 1, 1990')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='comic-for-this-post']//a[text()='1990-01-01-sample-comic.jpeg']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>comicpress-img-title</td>
+	<td>${hovertext}</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>comicpress-transcript</td>
+	<td>${transcript}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sample Comic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>${hovertext}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>${transcript}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@class='comic']//a[contains(@href, '1990-01-01-sample-comic.jpeg')][text()='rss']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@class='comic']//a[contains(@href, '1990-01-01-sample-comic.jpeg')][text()='archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>regen-1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following thumbnails were written: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class='tablenav'][1]//span[@class='displaying-num']</td>
+	<td>No items to display</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>PHP upload error code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You didn't upload any files!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.txt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>According to GD, the following files were invalid image files: 1990-01-01-sample-comic.txt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-not-jpeg.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>According to GD, the following files were invalid image files: 1990-01-01-sample-comic-not-jpeg.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-too-large-file.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>300000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Your uploaded files were larger than the post_max_size setting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.zip</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>600000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.txt.zip</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>According to GD, the following files were invalid image files: 1990-01-01-sample-comic.txt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/comics.zip</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Assume max_upload_filesize of 2M-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/too-large-import.zip</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>regexp:(The file too-large-import.zip was too large.|larger than the post_max_size)</td>
+	<td></td>
+</tr>
+<!--Make sure new GIF code is working-->
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-gif_thumbnail.gif</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>multiple-new-post-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-gif_thumbnail.gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Thumbnails were written for the following files: 1990-01-01-gif_thumbnail.gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1990-01-01-gif_thumbnail.gif</td>
+	<td></td>
+</tr>
+<!--No Extension but GD knows what it is-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-perform-gd-check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-no-extension-jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>top-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>GD was able to recognize the filetypes of these files and change their extensions to match: 1990-01-01-sample-comic-no-extension-jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic-no-extension-jpeg.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-no-extension-jpeg.zip</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>GD was able to recognize the filetypes of these files and change their extensions to match: 1990-01-01-sample-comic-no-extension-jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic-no-extension-jpeg.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<!--Bad extension-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.bad-extension</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>top-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>GD was able to recognize the filetypes of these files and change their extensions to match: 1990-01-01-sample-comic.bad-extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.bad-extension.zip</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>top-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>GD was able to recognize the filetypes of these files and change their extensions to match: 1990-01-01-sample-comic.bad-extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following files were uploaded: 1990-01-01-sample-comic.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<!--CMYK -> RGB-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, 'comicpress-manager') and contains(text(), 'Upload')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload-0</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic-cmyk.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='top-submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>The following JPEG files have been converted from CMYK to RGB: 1990-01-01-sample-comic-cmyk.jpeg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dates</td>
+	<td>label=January 1990</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>dofilter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Displaying 1-1 of 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertXpathCount</td>
+	<td>//table[@id='status-table']/tbody/tr[@class='data-row']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>toggle-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>bulk-action</td>
+	<td>label=Delete Selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>doaction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>You are about to delete the selected posts and comic files. Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

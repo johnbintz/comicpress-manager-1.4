@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://comicpress.local" />
+<title>TestEditPost</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestEditPost</td></tr>
+</thead><tbody>
+<!--Ensure CPM doesn't interfere with posting-->
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//script[contains(@src, 'prototype')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//script[contains(@src, 'effects')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//script[contains(@src, 'builder')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='comic-for-this-post']//input[@type=&quot;radio&quot;][1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>//div[@id='comic-for-this-post']//input[@type=&quot;radio&quot;][1]@value</td>
+	<td>category</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[@id='categories-all']//input[@value='1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>save-post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>50000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='categories-all']//input[@value='${category}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>//div[@id='categories-all']//input[@value='1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Post moved to the trash.</td>
+</tr>
+<!--Make Sure Dates Don't Change-->
+<!--and Make Sure Uploading a Comic To A New Post Sets a Comic Category-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@href='post-new.php']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>comicpress-replace-image</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>comicpress-replace-image</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Post published. View post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>title</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>post_category-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Edit Permalink-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(@class, 'edit-slug')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>new-post-slug</td>
+	<td>my-test-permalink</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=OK</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>title</td>
+	<td>Selenium Test</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>post_category-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>sample-comic.jpeg</td>
+	<td></td>
+</tr>
+<!--Clean Up-->
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>moved to the trash.</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

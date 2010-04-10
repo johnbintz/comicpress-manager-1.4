@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TestQuomicPress</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestQuomicPress</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>12:00am</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-edit-post-integrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-enable-quomicpress</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>50000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedIndex</td>
+	<td>//select[@id='mm']</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>//input[@id='jj']</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>//input[@id='aa']</td>
+	<td>1990</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//span[@id='timestamp']/b[contains(text(), 'Jan 1, 1990')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>cpm-default-post-time</td>
+	<td>original_post_time</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>7:35am</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='timestamp']/b</td>
+	<td>Jan 1, 1990 @ 7:35</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cpm-default-post-time</td>
+	<td>${original_post_time}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>enable-storyline-support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//div[@id='storyline-holder']/div[1]/input</td>
+	<td>chosen_storyline</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//strong[text()='${chosen_storyline}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//input[@name='in-comic-category[]']</td>
+	<td>category_id</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='comic-for-this-post']//input[@name='post_category[]'][@value='${category_id}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manager Config</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>cpm-default-comic-category-is-last-storyline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Change Configuration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Storyline Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//div[@id='storyline-holder']/div[last()]/input</td>
+	<td>chosen_storyline</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//strong[text()='${chosen_storyline}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//input[@name='in-comic-category[]']</td>
+	<td>category_id</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>//div[@id='comic-for-this-post']//input[@name='post_category[]'][@value='${category_id}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>upload</td>
+	<td>/home/john/Desktop/comicpress/selenium/1990-01-01-sample-comic.jpeg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>override-date</td>
+	<td>1990-01-02</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload Comic File and Edit Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//span[@id='timestamp']/b[contains(text(), 'Jan 2, 1990')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Move to Trash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
