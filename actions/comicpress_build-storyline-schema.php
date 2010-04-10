@@ -27,6 +27,7 @@ function cpm_action_build_storyline_schema() {
     }
 
     foreach ($_POST as $field => $value) {
+      $value = stripslashes($value);
       $parts = explode("/", $field);
       if (($parts[0] == "0") && (count($parts) > 1)) {
         $category_id = end($parts);
